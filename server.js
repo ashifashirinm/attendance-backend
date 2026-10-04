@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 5000;
+
 
 // ==========================================
 // FILE PATHS
@@ -369,9 +369,9 @@ app.get("/api/predictions/:rollNo", (req, res) => {
 // ==========================================
 // START SERVER
 // ==========================================
-
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, "0.0.0.0", () => {
   console.log(
-    `Backend server running on http://localhost:${PORT}`
+    `Backend server running on port ${PORT}`
   );
 });
